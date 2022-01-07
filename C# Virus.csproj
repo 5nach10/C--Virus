@@ -6,4 +6,8 @@
     <RootNamespace>C__Virus</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="COM" Version="1.1.0" />
+  </ItemGroup>
+
 </Project>
