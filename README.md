@@ -6,5 +6,5 @@ Diese Wunderwaffe der Staatsotterheit zerstört jede kapitalistische, auf dem Be
 # Hinweis
 Dies ist jediglich nur ein Joke. Tatsächlich wird der Computer nur so fett überlastet, dass gar nichts mehr funktioniert. Wenn man Windows im Safe Mode bootet, kann man einfach das Programm aus dem Autostart entfernen.  
 Wir sagen aber nicht, wie man in den Safe Mode kommt!
-![Bill "Microsoft" Gates](https://i.ds.at/r4uMXQ/rs:fill:750:0/plain/2021/12/11/gates.jpeg)  
+![Bill "Microsoft" Gates](https://i1.sndcdn.com/artworks-3qcYjySzIEWictXF-gjqtkA-t500x500.jpg)  
 Hahahahaha xD
